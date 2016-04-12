@@ -14,6 +14,9 @@
 
 	ns.Jigglypuff.prototype.gettingJigglyWitIt = function gettingJigglyWitIt( name ) {
 		
+		if (!(typeof name === "string" )){
+			throw new Error ("Not a Pokemon!");
+		}
 
 		return new ns.Jigglypuff(name, Date.now());
 
@@ -25,9 +28,13 @@
 	};
 
 	ns.Jigglypuff.prototype.sleep = function sleep(hours) {
-		if (Number(hours)) {
+		if (!(Number(hours))) {
+
+			throw new Error ("Jigglypuff is tired dammit!");
+			}
+
 		return "Jigglypuff has slept for " + hours + " hours";
-		}
+		
 	}
 	window.zoo = ns;
 })(window.zoo || {});

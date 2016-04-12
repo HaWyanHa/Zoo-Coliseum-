@@ -1,6 +1,5 @@
 (function (ns) {
-
-
+	
 
 	ns.Pikachu = function Pikachu(name, dob){
 
@@ -18,6 +17,9 @@
 	*/
 	ns.Pikachu.prototype.giveBirth = function giveBirth( name ) {
 		
+		if (!(typeof name === "string" )){
+			throw new Error ("Not a name!");
+		}
 
 		return new ns.Pikachu(name, Date.now());
 
@@ -34,10 +36,18 @@
 	};
 
 	ns.Pikachu.prototype.shockFools = function shockFools(fools) {
-		if (Number(fools)) {
+		
+		if (!(Number(fools))) {
+
+			throw new Error ("Pikachu can only shock a 'number' of fools!");
+			}
+
 		return "Pikachu has shocked " + fools + " fools";
-		}
+		
+
 	}
+
+
 
 	window.zoo = ns;
 })(window.zoo || {});
